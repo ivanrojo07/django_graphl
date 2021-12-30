@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     # Local apps
     'tag',
     'article',
-    'user'
+    'user',
+    'category'
 ]
 
 # GRAPHENE CONFIG
