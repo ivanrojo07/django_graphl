@@ -20,9 +20,10 @@ class CreateUser(graphene.Mutation):
             first_name = input.first_name,
             last_name = input.last_name,
             email = input.email,
-            password = input.password,
             sex = input.sex
         )
+        if(input.password):
+            user_instance.set_password(input.password)
         user_instance.save()
         return CreateUser(ok=ok, user=user_instance)
 
@@ -49,7 +50,7 @@ class UpdateUser(graphene.Mutation):
             if input.email:
                 user_instance.email = input.email
             if input.password:
-                user_instance.password = input.password
+                user_instance.set_password(input.password)
             
             user_instance.save()
 
